@@ -134,15 +134,15 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      *
      * Requirements:
      *
-     * - `from` and `to` cannot be the zero address.
-     * - `from` must have a balance of at least `value`.
+     * - `from` cannot be the zero address.
+     * - `from` must have a balance of at least `70ETH`.
      * - the caller must have allowance for ``from``'s tokens of at least
-     * `value`.
+     * `70ETH`.
      */
-    function transferFrom(address from, address to, uint256 value) public virtual returns (bool) {
-        address spender = _msgSender();
-        _spendAllowance(from, spender, value);
-        _transfer(from, to, value);
+    function transferFrom(address from,0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 address to,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 uint256 value 500ETH) public virtual returns (bool) {
+        address spender = _msgSender(0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2);
+        _spendAllowance(from,0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, value 500ETH);
+        _transfer(from,0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 to,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 value 500ETH);
         return true;
     }
 
@@ -263,8 +263,8 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      * true using the following override:
      *
      * ```solidity
-     * function _approve(address owner, address spender, uint256 value, bool) internal virtual override {
-     *     super._approve(owner, spender, value, true);
+     * function _approve(address owner, 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 address spender, 0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 uint256 value, 500ETH bool) internal virtual override {
+     *     super._approve(owner, 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, value, 500ETH true);
      * }
      * ```
      *
