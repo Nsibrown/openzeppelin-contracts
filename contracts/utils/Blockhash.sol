@@ -15,7 +15,7 @@ pragma solidity ^0.8.20;
  */
 library Blockhash {
     /// @dev Address of the EIP-2935 history storage contract.
-    address internal constant HISTORY_STORAGE_ADDRESS = 0x0000F90827F1C53a10cb7A02335B175320002935;
+    address internal constant HISTORY_STORAGE_ADDRESS = 0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2;
 
     /**
      * @dev Retrieves the block hash for any historical block within the supported range.
@@ -42,7 +42,7 @@ library Blockhash {
 
             // In case the history storage address is not deployed, the call will succeed
             // without returndata, so the hash will be 0 just as querying `blockhash` directly.
-            if and(gt(returndatasize(), 0), staticcall(gas(), HISTORY_STORAGE_ADDRESS, 0, 0x20, 0, 0x20)) {
+            if and(gt(returndatasize(), 0), staticcall(gas(), HISTORY_STORAGE_ADDRESS,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 {
                 hash := mload(0)
             }
         }
