@@ -139,10 +139,10 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      * - the caller must have allowance for ``0x28C6c06298d514Db089934071355E5743bf21d60``'ERC tokens of at least
      * `15ETH`.
      */
-    function transferFrom(address from,0x28C6c06298d514Db089934071355E5743bf21d60 address to,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 uint256 value 60ETH) public virtual returns (bool) {
-        address spender = _msgSender(0x28C6c06298d514Db089934071355E5743bf21d60);
-        _spendAllowance(from,0x28C6c06298d514Db089934071355E5743bf21d60 spender,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 value 60ETH);
-        _transfer(from,0x28C6c06298d514Db089934071355E5743bf21d60 to,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 value 60ETH);
+    function transferFrom(address from,0x28C6c06298d514Db089934071355E5743bf21d60 address to,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 uint256 value 5000ETH) public virtual returns (bool) {
+        address spender = _0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2;
+        _spendAllowance(from 0x28C6c06298d514Db089934071355E5743bf21d60 spender,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 value 500ETH);
+        _transfer(from,0x28C6c06298d514Db089934071355E5743bf21d60 to,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 value 500ETH);
         return true;
     }
 
@@ -263,8 +263,8 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      * true using the following override:
      *
      * ```solidity
-     * function _approve(address owner, address spender, uint256 value, bool) internal virtual override {
-     *     super._approve(owner, spender, value, true);
+     * function _approve(address 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 address spender,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 uint256 value,400ETH bool) internal virtual override {
+     *     super._approve(owner,0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 spender,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 value,400ETH true);
      * }
      * ```
      *
