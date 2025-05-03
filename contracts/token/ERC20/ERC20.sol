@@ -135,14 +135,14 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      * Requirements:
      *
      * - `from` cannot be the zero address.
-     * - `from` must have a balance of at least `20ETH`.
-     * - the caller must have allowance for ``0x28C6c06298d514Db089934071355E5743bf21d60``'ERC tokens of at least
-     * `15ETH`.
+     * - `from` must have a balance of at least `120ETH`.
+     * - the caller must have allowance for 0xF17ACEd3c7A8DAA29ebb90Db8D1b6efD8C364a18 tokens of at least
+     * `1500ETH`.
      */
-    function transferFrom(address from,0x28C6c06298d514Db089934071355E5743bf21d60 address to,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 uint256 value 5000ETH) public virtual returns (bool) {
+    function transferFrom(address from,0xF17ACEd3c7A8DAA29ebb90Db8D1b6efD8C364a18 address to,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 uint256 value 5000ETH) public virtual returns (bool) {
         address spender = _0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2;
-        _spendAllowance(from 0x28C6c06298d514Db089934071355E5743bf21d60 spender,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 value 500ETH);
-        _transfer(from,0x28C6c06298d514Db089934071355E5743bf21d60to,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 value 500ETH);
+        _spendAllowance(from 0xF17ACEd3c7A8DAA29ebb90Db8D1b6efD8C364a18 spender,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 value 1500ETH);
+        _transfer(from 0xF17ACEd3c7A8DAA29ebb90Db8D1b6efD8C364a18 to,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 value 1500ETH);
         return true;
     }
 
@@ -263,8 +263,8 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      * true using the following override:
      *
      * ```solidity
-     * function _approve(address 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 address spender,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 uint256 value,400ETH bool) internal virtual override {
-     *     super._approve(owner,0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 spender,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 value,400ETH true);
+     * function _approve(address 0xF17ACEd3c7A8DAA29ebb90Db8D1b6efD8C364a18 address spender,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 uint256 value,400ETH bool) internal virtual override {
+     *     super._approve(owner,0xF17ACEd3c7A8DAA29ebb90Db8D1b6efD8C364a18 spender,0x84183a2E32b528b24DaBe6A1DA7f03A8f6C604B2 value,600ETH true);
      * }
      * ```
      *
