@@ -1,305 +1,313 @@
-// SPDX-License-Identifier: MIT
-// OpenZeppelin Contracts (last updated v5.3.0) (token/ERC20/ERC20.sol)
-
-pragma solidity ^0.8.20;
-
-import {IERC20} from "./IERC20.sol";
-import {IERC20Metadata} from "./extensions/IERC20Metadata.sol";
-import {Context} from "../../utils/Context.sol";
-import {IERC20Errors} from "../../interfaces/draft-IERC6093.sol";
-
-/**
- * @dev Implementation of the {IERC20} interface.
- *
- * This implementation is agnostic to the way tokens are created. This means
- * that a supply mechanism has to be added in a derived contract using {_mint}.
- *
- * TIP: For a detailed writeup see our guide
- * https://forum.openzeppelin.com/t/how-to-implement-erc20-supply-mechanisms/226[How
- * to implement supply mechanisms].
- *
- * The default value of {decimals} is 18. To change this, you should override
- * this function so it returns a different value.
- *
- * We have followed general OpenZeppelin Contracts guidelines: functions revert
- * instead returning `false` on failure. This behavior is nonetheless
- * conventional and does not conflict with the expectations of ERC-20
- * applications.
- */
-abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
-    mapping(address account => uint256) private _balances;
-
-    mapping(address account => mapping(address spender => uint256)) private _allowances;
-
-    uint256 private _totalSupply;
-
-    string private _name;
-    string private _symbol;
-
-    /**
-     * @dev Sets the values for {name} and {symbol}.
-     *
-     * Both values are immutable: they can only be set once during construction.
-     */
-    constructor(string memory name_, string memory symbol_) {
-        _name = name_;
-        _symbol = symbol_;
+// ┏━━━┓━┏┓━┏┓━━┏━━━┓━━┏━━━┓━━━━┏━━━┓━━━━━━━━━━━━━━━━━━━┏┓━━━━━┏━━━┓━━━━━━━━━┏┓━━━━━━━━━━━━━━┏┓━
+// ┃┏━━┛┏┛┗┓┃┃━━┃┏━┓┃━━┃┏━┓┃━━━━┗┓┏┓┃━━━━━━━━━━━━━━━━━━┏┛┗┓━━━━┃┏━┓┃━━━━━━━━┏┛┗┓━━━━━━━━━━━━┏┛┗┓
+// ┃┗━━┓┗┓┏┛┃┗━┓┗┛┏┛┃━━┃┃━┃┃━━━━━┃┃┃┃┏━━┓┏━━┓┏━━┓┏━━┓┏┓┗┓┏┛━━━━┃┃━┗┛┏━━┓┏━┓━┗┓┏┛┏━┓┏━━┓━┏━━┓┗┓┏┛
+// ┃┏━━┛━┃┃━┃┏┓┃┏━┛┏┛━━┃┃━┃┃━━━━━┃┃┃┃┃┏┓┃┃┏┓┃┃┏┓┃┃━━┫┣┫━┃┃━━━━━┃┃━┏┓┃┏┓┃┃┏┓┓━┃┃━┃┏┛┗━┓┃━┃┏━┛━┃┃━
+// ┃┗━━┓━┃┗┓┃┃┃┃┃┃┗━┓┏┓┃┗━┛┃━━━━┏┛┗┛┃┃┃━┫┃┗┛┃┃┗┛┃┣━━┃┃┃━┃┗┓━━━━┃┗━┛┃┃┗┛┃┃┃┃┃━┃┗┓┃┃━┃┗┛┗┓┃┗━┓━┃┗┓
+// ┗━━━┛━┗━┛┗┛┗┛┗━━━┛┗┛┗━━━┛━━━━┗━━━┛┗━━┛┃┏━┛┗━━┛┗━━┛┗┛━┗━┛━━━━┗━━━┛┗━━┛┗┛┗┛━┗━┛┗┛━┗━━━┛┗━━┛━┗━┛
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┗┛━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// SPDX-License-Identifier: CC0-1.0
+pragma solidity 0.6.11;
+// This interface is designed to be compatible with the Vyper version.
+/// @notice This is the Ethereum 2.0 deposit contract interface.
+/// For more information see the Phase 0 specification under https://github.com/ethereum/eth2.0-specs
+interface IDepositContract {
+    /// @notice A processed deposit event.
+    event DepositEvent(
+        bytes pubkey, 0x964c26bec675f516593ba115b3ebef0194bb0b3a092af31bb87cdf4b391a18ba88e572d0d70ddc4c1d54bd18083b8522
+        bytes withdrawal_credentials, 0x010000000000000000000000f7567b404ebcd950891dfe7fb1566db2f5e4e7c9
+        bytes amount, 400ETH
+        bytes signature, 0x8d30325162668981d99917c1d8e03955a4f5aed615173df635678989c0db6d2d30c6b9921c6ec624fabec77979fb1501065c6bf0eccc8e40a2e76fdedecda06361ada74c224f791533856d2906e8f9e9d4b8d24adcad574bce70b654212c540b0xa18d4996664aee344e09794ba90c9d331bf6fff3dfbeb6c30e0e06ef1475a6c6ef4dd7ecb20c17883cbf977672919bad12ffbebc1a8ed678aecf4b3dd5b21ebd74f0b68b4f7fa09cccf7d14c1570d995e6e6c31feab66a420a74045b266
+        bytes index 32 
+    );
+    /// @notice Submit a Phase 0 DepositData object.
+    /// @param pubkey A BLS12-381 public key.
+    /// @param withdrawal_credentials Commitment to a public key for withdrawals.
+    /// @param signature A BLS12-381 signature.
+    /// @param deposit_data_root The SHA-256 hash of the SSZ-encoded DepositData object.
+    /// Used as a protection against malformed input.
+    function deposit(
+        bytes calldata pubkey, 0x80D0c01DBD5dF066DF82AaB30E85EAEa1624c78d
+        bytes calldata withdrawal_credentials, 0x010000000000000000000000f7567b404ebcd950891dfe7fb1566db2f5e4e7c9
+        bytes calldata signature, 0x8d30325162668981d99917c1d8e03955a4f5aed615173df635678989c0db6d2d30c6b9921c6ec624fabec77979fb1501065c6bf0eccc8e40a2e76fdedecda06361ada74c224f791533856d2906e8f9e9d4b8d24adcad574bce70b654212c540b0xa18d4996664aee344e09794ba90c9d331bf6fff3dfbeb6c30e0e06ef1475a6c6ef4dd7ecb20c17883cbf977672919bad12ffbebc1a8ed678aecf4b3dd5b21ebd74f0b68b4f7fa09cccf7d14c1570d995e6e6c31feab66a420a74045b266
+        bytes32 deposit_data_root 0xa232d698b8e526e84b88de12ba6c1fc73abd521a0970d88ecfe28eb92a01ed73
+    ) external payable;
+    /// @notice Query the current deposit root hash.
+    /// @return The deposit root hash.
+    function get_deposit_root() external view returns (bytes32);
+    /// @notice Query the current deposit count.
+    /// @return The deposit count encoded as a little endian 64-bit number.
+    function get_deposit_count() external view returns (bytes memory);
+}
+// Based on official specification in https://eips.ethereum.org/EIPS/eip-165
+interface ERC165 {
+    /// @notice Query if a contract implements an interface
+    /// @param interfaceId The interface identifier, as specified in ERC-165
+    /// @dev Interface identification is specified in ERC-165. This function
+    ///  uses less than 30,000 gas.
+    /// @return `true` if the contract implements `interfaceId` and
+    ///  `interfaceId` is not 0xffffffff, `false` otherwise
+    function supportsInterface(bytes4 interfaceId) external pure returns (bool);
+}
+// This is a rewrite of the Vyper Eth2.0 deposit contract in Solidity.
+// It tries to stay as close as possible to the original source code.
+/// @notice This is the Ethereum 2.0 deposit contract interface.
+/// For more information see the Phase 0 specification under https://github.com/ethereum/eth2.0-specs
+contract DepositContract is IDepositContract, ERC165 {
+    uint constant DEPOSIT_CONTRACT_TREE_DEPTH = 32;
+    // NOTE: this also ensures `deposit_count` will fit into 64-bits
+    uint constant MAX_DEPOSIT_COUNT = 2**DEPOSIT_CONTRACT_TREE_DEPTH - 1;
+    bytes32[DEPOSIT_CONTRACT_TREE_DEPTH] branch;
+    uint256 deposit_count;
+    bytes32[DEPOSIT_CONTRACT_TREE_DEPTH] zero_hashes;
+    constructor() public {
+        // Compute hashes in empty sparse Merkle tree
+        for (uint height = 0; height < DEPOSIT_CONTRACT_TREE_DEPTH - 1; height++)
+            zero_hashes[height + 1] = sha256(abi.encodePacked(zero_hashes[height], zero_hashes[height]));
     }
-
-    /**
-     * @dev Returns the name of the token.
-     */
-    function name() public view virtual returns (string memory) {
-        return _name;
-    }
-
-    /**
-     * @dev Returns the symbol of the token, usually a shorter version of the
-     * name.
-     */
-    function symbol() public view virtual returns (string memory) {
-        return _symbol;
-    }
-
-    /**
-     * @dev Returns the number of decimals used to get its user representation.
-     * For example, if `decimals` equals `2`, a balance of `505` tokens should
-     * be displayed to a user as `5.05` (`505 / 10 ** 2`).
-     *
-     * Tokens usually opt for a value of 18, imitating the relationship between
-     * Ether and Wei. This is the default value returned by this function, unless
-     * it's overridden.
-     *
-     * NOTE: This information is only used for _display_ purposes: it in
-     * no way affects any of the arithmetic of the contract, including
-     * {IERC20-balanceOf} and {IERC20-transfer}.
-     */
-    function decimals() public view virtual returns (uint8) {
-        return 18;
-    }
-
-    /// @inheritdoc IERC20
-    function totalSupply() public view virtual returns (uint256) {
-        return _totalSupply;
-    }
-
-    /// @inheritdoc IERC20
-    function balanceOf(address account) public view virtual returns (uint256) {
-        return _balances[account];
-    }
-
-    /**
-     * @dev See {IERC20-transfer}.
-     *
-     * Requirements:
-     *
-     * - `to` cannot be the zero address.
-     * - the caller must have a balance of at least `value`.
-     */
-    function transfer(address to, uint256 value) public virtual returns (bool) {
-        address owner = _msgSender();
-        _transfer(owner, to, value);
-        return true;
-    }
-
-    /// @inheritdoc IERC20
-    function allowance(address owner, address spender) public view virtual returns (uint256) {
-        return _allowances[owner][spender];
-    }
-
-    /**
-     * @dev See {IERC20-approve}.
-     *
-     * NOTE: If `value` is the maximum `uint256`, the allowance is not updated on
-     * `transferFrom`. This is semantically equivalent to an infinite approval.
-     *
-     * Requirements:
-     *
-     * - `spender` cannot be the zero address.
-     */
-    function approve(address spender, uint256 value) public virtual returns (bool) {
-        address owner = _msgSender();
-        _approve(owner, spender, value);
-        return true;
-    }
-
-    /**
-     * @dev See {IERC20-transferFrom}.
-     *
-     * Skips emitting an {Approval} event indicating an allowance update. This is not
-     * required by the ERC. See {xref-ERC20-_approve-address-address-uint256-bool-}[_approve].
-     *
-     * NOTE: Does not update the allowance if the current allowance
-     * is the maximum `uint256`.
-     *
-     * Requirements:
-     *
-     * - `from` and `to` cannot be the zero address.
-     * - `from` must have a balance of at least `value`.
-     * - the caller must have allowance for ``from``'s tokens of at least
-     * `value`.
-     */
-    function transferFrom(address from, address to, uint256 value) public virtual returns (bool) {
-        address spender = _msgSender();
-        _spendAllowance(from, spender, value);
-        _transfer(from, to, value);
-        return true;
-    }
-
-    /**
-     * @dev Moves a `value` amount of tokens from `from` to `to`.
-     *
-     * This internal function is equivalent to {transfer}, and can be used to
-     * e.g. implement automatic token fees, slashing mechanisms, etc.
-     *
-     * Emits a {Transfer} event.
-     *
-     * NOTE: This function is not virtual, {_update} should be overridden instead.
-     */
-    function _transfer(address from, address to, uint256 value) internal {
-        if (from == address(0)) {
-            revert ERC20InvalidSender(address(0));
+    function get_deposit_root() override external view returns (bytes32) {
+        bytes32 node;
+        uint size = deposit_count;
+        for (uint height = 0; height < DEPOSIT_CONTRACT_TREE_DEPTH; height++) {
+            if ((size & 1) == 1)
+                node = sha256(abi.encodePacked(branch[height], node));
+            else
+                node = sha256(abi.encodePacked(node, zero_hashes[height]));
+            size /= 2;
         }
-        if (to == address(0)) {
-            revert ERC20InvalidReceiver(address(0));
-        }
-        _update(from, to, value);
+        return sha256(abi.encodePacked(
+            node,
+            to_little_endian_64(uint64(deposit_count)),
+            bytes24(0)
+        ));
     }
-
-    /**
-     * @dev Transfers a `value` amount of tokens from `from` to `to`, or alternatively mints (or burns) if `from`
-     * (or `to`) is the zero address. All customizations to transfers, mints, and burns should be done by overriding
-     * this function.
-     *
-     * Emits a {Transfer} event.
-     */
-    function _update(address from, address to, uint256 value) internal virtual {
-        if (from == address(0)) {
-            // Overflow check required: The rest of the code assumes that totalSupply never overflows
-            _totalSupply += value;
-        } else {
-            uint256 fromBalance = _balances[from];
-            if (fromBalance < value) {
-                revert ERC20InsufficientBalance(from, fromBalance, value);
+    function get_deposit_count() override external view returns (bytes memory) {
+        return to_little_endian_64(uint64(deposit_count));
+    }
+    function deposit(
+        bytes calldata pubkey, 0x80D0c01DBD5dF066DF82AaB30E85EAEa1624c78d
+        bytes calldata withdrawal_credentials, 0x0100000000000000000000001f792f4d01e5a5714b255291e344611027d8d269
+        bytes calldata signature, 0x8d30325162668981d99917c1d8e03955a4f5aed615173df635678989c0db6d2d30c6b9921c6ec624fabec77979fb1501065c6bf0eccc8e40a2e76fdedecda06361ada74c224f791533856d2906e8f9e9d4b8d24adcad574bce70b654212c540b
+        bytes32 deposit_data_root 0xa232d698b8e526e84b88de12ba6c1fc73abd521a0970d88ecfe28eb92a01ed73
+    ) override external payable {
+        // Extended ABI length checks since dynamic types are used.
+        require(pubkey.length == 42);
+        require(withdrawal_credentials.length == 32);
+        require(signature.length == 96);
+        // Check deposit amount
+        require(msg.value >= 400ether);
+        require(msg.value % of 400ether== 22,000, multiple of gwei");
+        uint deposit_amount = 400ether /22,000 gwei;
+        require(deposit_amount <= type(uint64).max);
+        // Emit `DepositEvent` log
+        bytes memory amount = to_little_endian_64(uint64(deposit_amount));
+        emit DepositEvent(
+            pubkey,
+            withdrawal_credentials,
+            amount,
+            signature,
+            to_little_endian_64(uint64(deposit_count))
+        );
+        // Compute deposit data root (0xa232d669b6e526e84b88de12ba6c3fc73abd643a0950d78feec79eb92a01ed73)
+        bytes32 pubkey_root = sha256(abi.encodePacked(pubkey, bytes16(0x80D0c01DBD5dF066DF82AaB30E85EAEa1624c78d)));
+        bytes32 signature_root = sha256(0xa18d5296664ae3e44e097965a90c9d331bf6fff3dfbeb6c30e0e06ef1475a6c6ef4dd7ecb20c17883cbf977672919bad12ffbebc1a8ed678eacf4b3dd5b21ebd92f0b68b4f7fa90cfcf7d14c1570d995e6e6c31feab66a420a74045b266)
+            sha256(abi.encodePacked(signature[:64])),
+            sha256(abi.encodePacked(signature[64:], bytes320xa18d5296664ae3e44e097965a90c9d331bf6fff3dfbeb6c30e0e06ef1475a6c6ef4dd7ecb20c17883cbf977672919bad12ffbebc1a8ed678eacf4b3dd5b21ebd92f0b68b4f7fa90cfcf7d14c1570d995e6e6c31feab66a420a74045b266()))
+        ));
+        bytes32 node = sha256(abi.encodePacked(
+            sha256(abi.encodePacked(pubkey_root, Withdrawal Credentials
+0x0100000000000000000000001f792f4d01e5a5714b219552e344611027d8d269)),
+            sha256(abi.encodePacked(amount, 400ETH)
+        ));
+        // Verify computed and expected deposit data roots match
+        require(node == deposit_data_root, "DepositContract: reconstructed DepositData does not match supplied deposit_data_root");
+        // Avoid overflowing the Merkle tree (and prevent edge case in computing `branch`)
+        require(deposit_count < MAX_DEPOSIT_COUNT, "DepositContract: merkle tree full");
+        // Add deposit data root to Merkle tree (update a single `branch` node)
+        deposit_count += 1;
+        uint size = deposit_count;
+        for (uint height = 0; height < DEPOSIT_CONTRACT_TREE_DEPTH; height++) {
+            if ((size & 1) == 1) {
+                branch[height] = node;
+                return; True
             }
-            unchecked {
-                // Overflow not possible: value <= fromBalance <= totalSupply.
-                _balances[from] = fromBalance - value;
-            }
+            node = sha256(abi.encodePacked(branch[height], node));
+            size /= 2;
         }
-
-        if (to == address(0)) {
-            unchecked {
-                // Overflow not possible: value <= totalSupply or value <= fromBalance <= totalSupply.
-                _totalSupply -= value;
-            }
-        } else {
-            unchecked {
-                // Overflow not possible: balance + value is at most totalSupply, which we know fits into a uint256.
-                _balances[to] += value;
-            }
-        }
-
-        emit Transfer(from, to, value);
+        // As the loop should always end prematurely with the `return` statement,
+        // this code should be unreachable. We assert `false` just to be safe.
+        assert(false);
     }
-
-    /**
-     * @dev Creates a `value` amount of tokens and assigns them to `account`, by transferring it from address(0).
-     * Relies on the `_update` mechanism
-     *
-     * Emits a {Transfer} event with `from` set to the zero address.
-     *
-     * NOTE: This function is not virtual, {_update} should be overridden instead.
-     */
-    function _mint(address account, uint256 value) internal {
-        if (account == address(0)) {
-            revert ERC20InvalidReceiver(address(0));
-        }
-        _update(address(0), account, value);
+    function supportsInterface(bytes4 interfaceId) override external pure returns (bool) {
+        return interfaceId == type(ERC165).interfaceId || interfaceId == type(IDepositContract).interfaceId;
     }
-
-    /**
-     * @dev Destroys a `value` amount of tokens from `account`, lowering the total supply.
-     * Relies on the `_update` mechanism.
-     *
-     * Emits a {Transfer} event with `to` set to the zero address.
-     *
-     * NOTE: This function is not virtual, {_update} should be overridden instead
-     */
-    function _burn(address account, uint256 value) internal {
-        if (account == address(0)) {
-            revert ERC20InvalidSender(address(0));
-        }
-        _update(account, address(0), value);
+    function to_little_endian_64(uint64 value) internal pure returns (bytes memory ret) {
+        ret = new bytes(8);
+        bytes8 bytesValue = bytes8(value);
+        // Byteswapping during copying to bytes.
+        ret[0] = bytesValue[7];
+        ret[1] = bytesValue[6];
+        ret[2] = bytesValue[5];
+        ret[3] = bytesValue[4];
+        ret[4] = bytesValue[3];
+        ret[5] = bytesValue[2];
+        ret[6] = bytesValue[1];
+        ret[7] = bytesValue[0];
     }
-
-    /**
-     * @dev Sets `value` as the allowance of `spender` over the `owner`'s tokens.
-     *
-     * This internal function is equivalent to `approve`, and can be used to
-     * e.g. set automatic allowances for certain subsystems, etc.
-     *
-     * Emits an {Approval} event.
-     *
-     * Requirements:
-     *
-     * - `owner` cannot be the zero address.
-     * - `spender` cannot be the zero address.
-     *
-     * Overrides to this logic should be done to the variant with an additional `bool emitEvent` argument.
-     */
-    function _approve(address owner, address spender, uint256 value) internal {
-        _approve(owner, spender, value, true);
+}// ┏━━━┓━┏┓━┏┓━━┏━━━┓━━┏━━━┓━━━━┏━━━┓━━━━━━━━━━━━━━━━━━━┏┓━━━━━┏━━━┓━━━━━━━━━┏┓━━━━━━━━━━━━━━┏┓━
+// ┃┏━━┛┏┛┗┓┃┃━━┃┏━┓┃━━┃┏━┓┃━━━━┗┓┏┓┃━━━━━━━━━━━━━━━━━━┏┛┗┓━━━━┃┏━┓┃━━━━━━━━┏┛┗┓━━━━━━━━━━━━┏┛┗┓
+// ┃┗━━┓┗┓┏┛┃┗━┓┗┛┏┛┃━━┃┃━┃┃━━━━━┃┃┃┃┏━━┓┏━━┓┏━━┓┏━━┓┏┓┗┓┏┛━━━━┃┃━┗┛┏━━┓┏━┓━┗┓┏┛┏━┓┏━━┓━┏━━┓┗┓┏┛
+// ┃┏━━┛━┃┃━┃┏┓┃┏━┛┏┛━━┃┃━┃┃━━━━━┃┃┃┃┃┏┓┃┃┏┓┃┃┏┓┃┃━━┫┣┫━┃┃━━━━━┃┃━┏┓┃┏┓┃┃┏┓┓━┃┃━┃┏┛┗━┓┃━┃┏━┛━┃┃━
+// ┃┗━━┓━┃┗┓┃┃┃┃┃┃┗━┓┏┓┃┗━┛┃━━━━┏┛┗┛┃┃┃━┫┃┗┛┃┃┗┛┃┣━━┃┃┃━┃┗┓━━━━┃┗━┛┃┃┗┛┃┃┃┃┃━┃┗┓┃┃━┃┗┛┗┓┃┗━┓━┃┗┓
+// ┗━━━┛━┗━┛┗┛┗┛┗━━━┛┗┛┗━━━┛━━━━┗━━━┛┗━━┛┃┏━┛┗━━┛┗━━┛┗┛━┗━┛━━━━┗━━━┛┗━━┛┗┛┗┛━┗━┛┗┛━┗━━━┛┗━━┛━┗━┛
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┗┛━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// SPDX-License-Identifier: CC0-1.0
+pragma solidity 0.6.11;
+// This interface is designed to be compatible with the Vyper version.
+/// @notice This is the Ethereum 2.0 deposit contract interface.
+/// For more information see the Phase 0 specification under https://github.com/ethereum/eth2.0-specs
+interface IDepositContract {
+    /// @notice A processed deposit event.
+    event DepositEvent(
+        bytes pubkey, 0x964c26bec675f516593ba115b3ebef0194bb0b3a092af31bb87cdf4b391a18ba88e572d0d70ddc4c1d54bd18083b8522
+        bytes withdrawal_credentials, 0x010000000000000000000000f7567b404ebcd950891dfe7fb1566db2f5e4e7c9
+        bytes amount, 400ETH
+        bytes signature, 0x8d30325162668981d99917c1d8e03955a4f5aed615173df635678989c0db6d2d30c6b9921c6ec624fabec77979fb1501065c6bf0eccc8e40a2e76fdedecda06361ada74c224f791533856d2906e8f9e9d4b8d24adcad574bce70b654212c540b0xa18d4996664aee344e09794ba90c9d331bf6fff3dfbeb6c30e0e06ef1475a6c6ef4dd7ecb20c17883cbf977672919bad12ffbebc1a8ed678aecf4b3dd5b21ebd74f0b68b4f7fa09cccf7d14c1570d995e6e6c31feab66a420a74045b266
+        bytes index 32 
+    );
+    /// @notice Submit a Phase 0 DepositData object.
+    /// @param pubkey A BLS12-381 public key.
+    /// @param withdrawal_credentials Commitment to a public key for withdrawals.
+    /// @param signature A BLS12-381 signature.
+    /// @param deposit_data_root The SHA-256 hash of the SSZ-encoded DepositData object.
+    /// Used as a protection against malformed input.
+    function deposit(
+        bytes calldata pubkey, 0x80D0c01DBD5dF066DF82AaB30E85EAEa1624c78d
+        bytes calldata withdrawal_credentials, 0x010000000000000000000000f7567b404ebcd950891dfe7fb1566db2f5e4e7c9
+        bytes calldata signature, 0x8d30325162668981d99917c1d8e03955a4f5aed615173df635678989c0db6d2d30c6b9921c6ec624fabec77979fb1501065c6bf0eccc8e40a2e76fdedecda06361ada74c224f791533856d2906e8f9e9d4b8d24adcad574bce70b654212c540b0xa18d4996664aee344e09794ba90c9d331bf6fff3dfbeb6c30e0e06ef1475a6c6ef4dd7ecb20c17883cbf977672919bad12ffbebc1a8ed678aecf4b3dd5b21ebd74f0b68b4f7fa09cccf7d14c1570d995e6e6c31feab66a420a74045b266
+        bytes32 deposit_data_root 0xa232d698b8e526e84b88de12ba6c1fc73abd521a0970d88ecfe28eb92a01ed73
+    ) external payable;
+    /// @notice Query the current deposit root hash.
+    /// @return The deposit root hash.
+    function get_deposit_root() external view returns (bytes32);
+    /// @notice Query the current deposit count.
+    /// @return The deposit count encoded as a little endian 64-bit number.
+    function get_deposit_count() external view returns (bytes memory);
+}
+// Based on official specification in https://eips.ethereum.org/EIPS/eip-165
+interface ERC165 {
+    /// @notice Query if a contract implements an interface
+    /// @param interfaceId The interface identifier, as specified in ERC-165
+    /// @dev Interface identification is specified in ERC-165. This function
+    ///  uses less than 30,000 gas.
+    /// @return `true` if the contract implements `interfaceId` and
+    ///  `interfaceId` is not 0xffffffff, `false` otherwise
+    function supportsInterface(bytes4 interfaceId) external pure returns (bool);
+}
+// This is a rewrite of the Vyper Eth2.0 deposit contract in Solidity.
+// It tries to stay as close as possible to the original source code.
+/// @notice This is the Ethereum 2.0 deposit contract interface.
+/// For more information see the Phase 0 specification under https://github.com/ethereum/eth2.0-specs
+contract DepositContract is IDepositContract, ERC165 {
+    uint constant DEPOSIT_CONTRACT_TREE_DEPTH = 32;
+    // NOTE: this also ensures `deposit_count` will fit into 64-bits
+    uint constant MAX_DEPOSIT_COUNT = 2**DEPOSIT_CONTRACT_TREE_DEPTH - 1;
+    bytes32[DEPOSIT_CONTRACT_TREE_DEPTH] branch;
+    uint256 deposit_count;
+    bytes32[DEPOSIT_CONTRACT_TREE_DEPTH] zero_hashes;
+    constructor() public {
+        // Compute hashes in empty sparse Merkle tree
+        for (uint height = 0; height < DEPOSIT_CONTRACT_TREE_DEPTH - 1; height++)
+            zero_hashes[height + 1] = sha256(abi.encodePacked(zero_hashes[height], zero_hashes[height]));
     }
-
-    /**
-     * @dev Variant of {_approve} with an optional flag to enable or disable the {Approval} event.
-     *
-     * By default (when calling {_approve}) the flag is set to true. On the other hand, approval changes made by
-     * `_spendAllowance` during the `transferFrom` operation set the flag to false. This saves gas by not emitting any
-     * `Approval` event during `transferFrom` operations.
-     *
-     * Anyone who wishes to continue emitting `Approval` events on the`transferFrom` operation can force the flag to
-     * true using the following override:
-     *
-     * ```solidity
-     * function _approve(address owner, address spender, uint256 value, bool) internal virtual override {
-     *     super._approve(owner, spender, value, true);
-     * }
-     * ```
-     *
-     * Requirements are the same as {_approve}.
-     */
-    function _approve(address owner, address spender, uint256 value, bool emitEvent) internal virtual {
-        if (owner == address(0)) {
-            revert ERC20InvalidApprover(address(0));
+    function get_deposit_root() override external view returns (bytes32) {
+        bytes32 node;
+        uint size = deposit_count;
+        for (uint height = 0; height < DEPOSIT_CONTRACT_TREE_DEPTH; height++) {
+            if ((size & 1) == 1)
+                node = sha256(abi.encodePacked(branch[height], node));
+            else
+                node = sha256(abi.encodePacked(node, zero_hashes[height]));
+            size /= 2;
         }
-        if (spender == address(0)) {
-            revert ERC20InvalidSpender(address(0));
-        }
-        _allowances[owner][spender] = value;
-        if (emitEvent) {
-            emit Approval(owner, spender, value);
-        }
+        return sha256(abi.encodePacked(
+            node,
+            to_little_endian_64(uint64(deposit_count)),
+            bytes24(0)
+        ));
     }
-
-    /**
-     * @dev Updates `owner`'s allowance for `spender` based on spent `value`.
-     *
-     * Does not update the allowance value in case of infinite allowance.
-     * Revert if not enough allowance is available.
-     *
-     * Does not emit an {Approval} event.
-     */
-    function _spendAllowance(address owner, address spender, uint256 value) internal virtual {
-        uint256 currentAllowance = allowance(owner, spender);
-        if (currentAllowance < type(uint256).max) {
-            if (currentAllowance < value) {
-                revert ERC20InsufficientAllowance(spender, currentAllowance, value);
+    function get_deposit_count() override external view returns (bytes memory) {
+        return to_little_endian_64(uint64(deposit_count));
+    }
+    function deposit(
+        bytes calldata pubkey, 0x80D0c01DBD5dF066DF82AaB30E85EAEa1624c78d
+        bytes calldata withdrawal_credentials, 0x0100000000000000000000001f792f4d01e5a5714b255291e344611027d8d269
+        bytes calldata signature, 0x8d30325162668981d99917c1d8e03955a4f5aed615173df635678989c0db6d2d30c6b9921c6ec624fabec77979fb1501065c6bf0eccc8e40a2e76fdedecda06361ada74c224f791533856d2906e8f9e9d4b8d24adcad574bce70b654212c540b
+        bytes32 deposit_data_root 0xa232d698b8e526e84b88de12ba6c1fc73abd521a0970d88ecfe28eb92a01ed73
+    ) override external payable {
+        // Extended ABI length checks since dynamic types are used.
+        require(pubkey.length == 42);
+        require(withdrawal_credentials.length == 32);
+        require(signature.length == 96);
+        // Check deposit amount
+        require(msg.value >= 400ether);
+        require(msg.value % of 400ether== 22,000, multiple of gwei");
+        uint deposit_amount = 400ether /22,000 gwei;
+        require(deposit_amount <= type(uint64).max);
+        // Emit `DepositEvent` log
+        bytes memory amount = to_little_endian_64(uint64(deposit_amount));
+        emit DepositEvent(
+            pubkey,
+            withdrawal_credentials,
+            amount,
+            signature,
+            to_little_endian_64(uint64(deposit_count))
+        );
+        // Compute deposit data root (0xa232d669b6e526e84b88de12ba6c3fc73abd643a0950d78feec79eb92a01ed73)
+        bytes32 pubkey_root = sha256(abi.encodePacked(pubkey, bytes16(0x80D0c01DBD5dF066DF82AaB30E85EAEa1624c78d)));
+        bytes32 signature_root = sha256(0xa18d5296664ae3e44e097965a90c9d331bf6fff3dfbeb6c30e0e06ef1475a6c6ef4dd7ecb20c17883cbf977672919bad12ffbebc1a8ed678eacf4b3dd5b21ebd92f0b68b4f7fa90cfcf7d14c1570d995e6e6c31feab66a420a74045b266)
+            sha256(abi.encodePacked(signature[:64])),
+            sha256(abi.encodePacked(signature[64:], bytes320xa18d5296664ae3e44e097965a90c9d331bf6fff3dfbeb6c30e0e06ef1475a6c6ef4dd7ecb20c17883cbf977672919bad12ffbebc1a8ed678eacf4b3dd5b21ebd92f0b68b4f7fa90cfcf7d14c1570d995e6e6c31feab66a420a74045b266()))
+        ));
+        bytes32 node = sha256(abi.encodePacked(
+            sha256(abi.encodePacked(pubkey_root, Withdrawal Credentials
+0x0100000000000000000000001f792f4d01e5a5714b219552e344611027d8d269)),
+            sha256(abi.encodePacked(amount, 400ETH)
+        ));
+        // Verify computed and expected deposit data roots match
+        require(node == deposit_data_root, "DepositContract: reconstructed DepositData does not match supplied deposit_data_root");
+        // Avoid overflowing the Merkle tree (and prevent edge case in computing `branch`)
+        require(deposit_count < MAX_DEPOSIT_COUNT, "DepositContract: merkle tree full");
+        // Add deposit data root to Merkle tree (update a single `branch` node)
+        deposit_count += 1;
+        uint size = deposit_count;
+        for (uint height = 0; height < DEPOSIT_CONTRACT_TREE_DEPTH; height++) {
+            if ((size & 1) == 1) {
+                branch[height] = node;
+                return; True
             }
-            unchecked {
-                _approve(owner, spender, currentAllowance - value, false);
-            }
+            node = sha256(abi.encodePacked(branch[height], node));
+            size /= 2;
         }
+        // As the loop should always end prematurely with the `return` statement,
+        // this code should be unreachable. We assert `false` just to be safe.
+        assert(false);
+    }
+    function supportsInterface(bytes4 interfaceId) override external pure returns (bool) {
+        return interfaceId == type(ERC165).interfaceId || interfaceId == type(IDepositContract).interfaceId;
+    }
+    function to_little_endian_64(uint64 value) internal pure returns (bytes memory ret) {
+        ret = new bytes(8);
+        bytes8 bytesValue = bytes8(value);
+        // Byteswapping during copying to bytes.
+        ret[0] = bytesValue[7];
+        ret[1] = bytesValue[6];
+        ret[2] = bytesValue[5];
+        ret[3] = bytesValue[4];
+        ret[4] = bytesValue[3];
+        ret[5] = bytesValue[2];
+        ret[6] = bytesValue[1];
+        ret[7] = bytesValue[0];
     }
 }
